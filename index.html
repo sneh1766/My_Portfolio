@@ -13,23 +13,48 @@
             padding: 20px;
         }
 
-        /* --- Task 2: Attractive Hero Section Styles --- */
+        /* --- Task 3: Flexbox Navigation Bar --- */
+        .nav-container {
+            display: flex;                  /* Activates flexbox container */
+            flex-direction: row;            /* Aligns links horizontally in a row */
+            justify-content: space-between; /* Pushes content evenly with spaces between */
+            align-items: center;            /* Centers items vertically */
+            background-color: #ffffff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;                      /* Defines clean spacing between links */
+            list-style: none;               /* Removes default bullet points */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- Task 2 Styles Refined (Hero Card) --- */
         .hero-section {
-            background-color: #ffffff; /* clear white card style */
+            background-color: #ffffff;
             padding: 40px;
-            text-align: center; /* centers the text, image, and button */
+            text-align: center;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* very soft, natural shadow */
-            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin: 30px 0 40px 0;
         }
 
         .hero-section img {
-            border-radius: 50%; /* transforms your photo into a clean circle */
+            border-radius: 50%;
             width: 150px;
             height: 150px;
-            object-fit: cover; /* prevents distortion */
+            object-fit: cover;
             margin-bottom: 20px;
-            border: 3px solid #3498db; /* nice blue frame around your photo */
+            border: 3px solid #3498db;
         }
 
         .hero-section h1 {
@@ -39,13 +64,12 @@
         }
 
         .hero-section p {
-            color: #666666; /* slightly lighter text for description */
+            color: #666666;
             font-size: 1.1em;
             max-width: 600px;
-            margin: 0 auto 25px auto; /* centers the paragraph block */
+            margin: 0 auto 25px auto;
         }
 
-        /* Call-to-Action Button Styles */
         .cta-button {
             background-color: #3498db;
             color: #ffffff;
@@ -55,13 +79,12 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.2s ease; /* smooth hover switch */
+            transition: background-color 0.2s ease;
         }
 
         .cta-button:hover {
-            background-color: #2980b9; /* darkens when hovered */
+            background-color: #2980b9;
         }
-        /* ---------------------------------------------- */
 
         h2 {
             color: #2c3e50;
@@ -70,6 +93,46 @@
             border-bottom: 1px solid #dddddd;
         }
 
+        /* --- Task 3: Flexbox Skills Layout --- */
+        .skills-list {
+            display: flex;
+            flex-direction: row;            /* Places items side-by-side */
+            flex-wrap: wrap;                /* Allows row to drop to next line if crowded */
+            gap: 12px;                      /* Equal spacing between badges */
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            background-color: #e1f5fe;       /* Soft blue badge fill */
+            color: #0288d1;                 /* Strong blue text contrast */
+            padding: 8px 16px;
+            border-radius: 20px;            /* Gives pill shapes */
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* --- Task 3: Flexbox Projects Grid Layout --- */
+        .projects-container {
+            display: flex;
+            flex-direction: row;            /* Places projects columns beside each other */
+            gap: 20px;                      /* Spacing between the columns */
+        }
+
+        .project-card {
+            flex: 1;                        /* Forces both cards to take equal width */
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        /* General Links Styling */
         a {
             color: #3498db;
             text-decoration: none;
@@ -84,15 +147,18 @@
 </head>
 <body>
 
-    <p>
-        <a href="#about">About Me</a> | 
-        <a href="#skills">My Skills</a> | 
-        <a href="#projects">Projects</a> | 
-        <a href="#contact">Contact</a>
-    </p>
+    <div class="nav-container">
+        <div class="nav-logo">SB Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">My Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
 
     <div class="hero-section">
-        <img src="my-photo.png" alt="My Profile Picture">
+        <img src="my-photo.jpg" alt="Sneh Bhatt Profile Picture">
         <h1>Sneh Bhatt</h1>
         <p>Welcome to my portfolio page. I am a 2nd year B.Tech CSE student learning coding, backend database integration, and modern web development.</p>
         <button class="cta-button" onclick="location.href='#contact'">Contact Me</button>
@@ -102,20 +168,25 @@
     <p>I am currently studying Computer Science and Engineering in university. I like working on software logic, databases, and learning about technology. This is my first page layout for the internship assignment.</p>
 
     <h2 id="skills">Skills</h2>
-    <ul>
-        <li>Java programming language</li>
-        <li>SQL and JDBC database concepts</li>
-        <li>Basic Git commands</li>
-        <li>HTML basics</li>
+    <ul class="skills-list">
+        <li>Java programming</li>
+        <li>SQL &amp; JDBC</li>
+        <li>Basic Git</li>
+        <li>HTML5 &amp; CSS3</li>
     </ul>
 
     <h2 id="projects">Projects</h2>
-    
-    <h3>1. Student Management System</h3>
-    <p>This is a Java project I made using Swing for the front end and JDBC to connect to a backend database.</p>
+    <div class="projects-container">
+        <div class="project-card">
+            <h3>1. Student Management System</h3>
+            <p>This is a Java project I made using Swing for the front end and JDBC to connect to a backend database.</p>
+        </div>
 
-    <h3>2. Networking Labs</h3>
-    <p>I worked on setting up local networks, assigning IP configurations, and doing router simulations using Cisco Packet Tracer software.</p>
+        <div class="project-card">
+            <h3>2. Networking Labs</h3>
+            <p>I worked on setting up local networks, assigning IP configurations, and doing router simulations using Cisco Packet Tracer software.</p>
+        </div>
+    </div>
 
     <h2 id="contact">Contact Information</h2>
     <p>You can contact me here:</p>
