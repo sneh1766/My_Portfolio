@@ -3,43 +3,82 @@
 <head>
     <title>My Portfolio</title>
     <style>
-        /* 1. Consistent Color Scheme & Typography */
         body {
-            background-color: #f4f7f6; /* light grey/green background */
-            color: #333333; /* dark grey text for readability */
-            font-family: Arial, sans-serif; /* clean, modern font */
+            background-color: #f4f7f6;
+            color: #333333;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 40px auto;
             max-width: 800px;
             padding: 20px;
         }
 
-        /* 2. Spacing Between Sections */
-        h2 {
-            color: #2c3e50; /* deep blue-grey for headers */
-            margin-top: 40px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #dddddd; /* subtle separation */
+        /* --- Task 2: Attractive Hero Section Styles --- */
+        .hero-section {
+            background-color: #ffffff; /* clear white card style */
+            padding: 40px;
+            text-align: center; /* centers the text, image, and button */
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* very soft, natural shadow */
+            margin-bottom: 40px;
         }
 
-        /* 3. Style Links */
+        .hero-section img {
+            border-radius: 50%; /* transforms your photo into a clean circle */
+            width: 150px;
+            height: 150px;
+            object-fit: cover; /* prevents distortion */
+            margin-bottom: 20px;
+            border: 3px solid #3498db; /* nice blue frame around your photo */
+        }
+
+        .hero-section h1 {
+            color: #2c3e50;
+            margin: 10px 0;
+            font-size: 2.2em;
+        }
+
+        .hero-section p {
+            color: #666666; /* slightly lighter text for description */
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto 25px auto; /* centers the paragraph block */
+        }
+
+        /* Call-to-Action Button Styles */
+        .cta-button {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease; /* smooth hover switch */
+        }
+
+        .cta-button:hover {
+            background-color: #2980b9; /* darkens when hovered */
+        }
+        /* ---------------------------------------------- */
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #dddddd;
+        }
+
         a {
-            color: #3498db; /* bright blue link color */
-            text-decoration: none; /* removes the default underline */
+            color: #3498db;
+            text-decoration: none;
             font-weight: bold;
         }
 
-        /* 4. Add Hover Effects for Links */
         a:hover {
-            color: #2980b9; /* darker blue when you mouse over it */
+            color: #2980b9;
             text-decoration: underline;
-        }
-
-        /* Styling for the image to make it fit nicely */
-        img {
-            border-radius: 8px; /* smooth edges on your photo */
-            margin-top: 15px;
-            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -52,10 +91,12 @@
         <a href="#contact">Contact</a>
     </p>
 
-    <h1>Sneh Bhatt</h1>
-    <p>Welcome to my portfolio page. I am a 2nd year B.Tech CSE student learning coding and web development.</p>
-    
-    <img src="my-photo.png" alt="My Profile Picture" width="150">
+    <div class="hero-section">
+        <img src="my-photo.jpg" alt="Sneh Bhatt Profile Picture">
+        <h1>Sneh Bhatt</h1>
+        <p>Welcome to my portfolio page. I am a 2nd year B.Tech CSE student learning coding, backend database integration, and modern web development.</p>
+        <button class="cta-button" onclick="location.href='#contact'">Contact Me</button>
+    </div>
     
     <h2 id="about">About Me</h2>
     <p>I am currently studying Computer Science and Engineering in university. I like working on software logic, databases, and learning about technology. This is my first page layout for the internship assignment.</p>
