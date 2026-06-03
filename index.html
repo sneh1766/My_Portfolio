@@ -13,12 +13,12 @@
             padding: 20px;
         }
 
-        /* --- Task 3: Flexbox Navigation Bar --- */
+        /* --- Task 4: Responsive Navigation Bar Base Styles --- */
         .nav-container {
-            display: flex;                  /* Activates flexbox container */
-            flex-direction: row;            /* Aligns links horizontally in a row */
-            justify-content: space-between; /* Pushes content evenly with spaces between */
-            align-items: center;            /* Centers items vertically */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
             background-color: #ffffff;
             padding: 15px 25px;
             border-radius: 8px;
@@ -28,17 +28,34 @@
         .nav-logo {
             font-weight: bold;
             color: #2c3e50;
+            font-size: 1.2em;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;                      /* Defines clean spacing between links */
-            list-style: none;               /* Removes default bullet points */
+            gap: 20px;
+            list-style: none;
             margin: 0;
             padding: 0;
         }
 
-        /* --- Task 2 Styles Refined (Hero Card) --- */
+        /* --- Task 4: Mobile Responsiveness Media Query --- */
+        /* If the screen width is 600px or smaller, execute these changes */
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;     /* Switches header layout from horizontal row to vertical column */
+                gap: 15px;                  /* Adds space between the logo and the link stack */
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-direction: column;     /* Stacks your navigation links vertically on top of each other */
+                gap: 10px;                  /* Tightens mobile link gaps */
+            }
+        }
+        /* -------------------------------------------------- */
+
+        /* Task 2: Hero Card Styles */
         .hero-section {
             background-color: #ffffff;
             padding: 40px;
@@ -93,34 +110,40 @@
             border-bottom: 1px solid #dddddd;
         }
 
-        /* --- Task 3: Flexbox Skills Layout --- */
+        /* Task 3: Flexbox Skills Layout */
         .skills-list {
             display: flex;
-            flex-direction: row;            /* Places items side-by-side */
-            flex-wrap: wrap;                /* Allows row to drop to next line if crowded */
-            gap: 12px;                      /* Equal spacing between badges */
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 12px;
             padding: 0;
             list-style: none;
         }
 
         .skills-list li {
-            background-color: #e1f5fe;       /* Soft blue badge fill */
-            color: #0288d1;                 /* Strong blue text contrast */
+            background-color: #e1f5fe;
+            color: #0288d1;
             padding: 8px 16px;
-            border-radius: 20px;            /* Gives pill shapes */
+            border-radius: 20px;
             font-weight: bold;
             font-size: 0.9em;
         }
 
-        /* --- Task 3: Flexbox Projects Grid Layout --- */
+        /* Task 3: Flexbox Projects Layout adapts dynamically to mobile screen dimensions */
         .projects-container {
             display: flex;
-            flex-direction: row;            /* Places projects columns beside each other */
-            gap: 20px;                      /* Spacing between the columns */
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .projects-container {
+                flex-direction: column;     /* Stacks project cards vertically on small screens */
+            }
         }
 
         .project-card {
-            flex: 1;                        /* Forces both cards to take equal width */
+            flex: 1;
             background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
@@ -132,7 +155,7 @@
             color: #2c3e50;
         }
 
-        /* General Links Styling */
+        /* General Link Anchors */
         a {
             color: #3498db;
             text-decoration: none;
@@ -150,14 +173,15 @@
     <div class="nav-container">
         <div class="nav-logo">SB Portfolio</div>
         <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
             <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">My Skills</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 
-    <div class="hero-section">
+    <div class="hero-section" id="hero">
         <img src="my-photo.png" alt="My Profile Picture">
         <h1>Sneh Bhatt</h1>
         <p>Welcome to my portfolio page. I am a 2nd year B.Tech CSE student learning coding, backend database integration, and modern web development.</p>
