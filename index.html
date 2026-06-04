@@ -158,12 +158,16 @@
     <p><em>Copyright 2026 - Sneh Bhatt Portfolio</em></p>
 
     <script>
-        // --- Existing Task 3 Features ---
+        // --- Task 5: Browser Console Testing ---
+        console.log("Portfolio JavaScript loaded and running successfully!");
+
+        // --- Task 3: Button Click alert ---
         var alertButton = document.getElementById("contactBtn");
         alertButton.addEventListener("click", function() {
             alert("Please reach out via the email listed in the Contact section below!");
         });
 
+        // --- Task 3: Dark/Light theme toggle ---
         var themeButton = document.getElementById("themeBtn");
         themeButton.addEventListener("click", function() {
             document.body.classList.toggle("dark-body");
@@ -173,27 +177,22 @@
             document.getElementById("project2").classList.toggle("dark-card");
         });
 
-        // --- New Task 4 Features: Smooth Scroll & Simple Link Interaction ---
+        // --- Task 4: Smooth Scroll & Active Link highlighting ---
         var menuLinks = document.querySelectorAll(".nav-item");
 
         for (var i = 0; i < menuLinks.length; i++) {
             menuLinks[i].addEventListener("click", function(event) {
-                // Prevent normal instant jump behavior
                 event.preventDefault(); 
                 
-                // Remove active highlight from all links first
                 for (var j = 0; j < menuLinks.length; j++) {
                     menuLinks[j].classList.remove("active-link");
                 }
                 
-                // Add active highlight to clicked link (Navbar Interaction)
                 this.classList.add("active-link");
 
-                // Get target ID from href attribute (e.g., "#about")
                 var targetId = this.getAttribute("href");
                 var targetSection = document.querySelector(targetId);
                 
-                // Execute Smooth Scroll natively
                 targetSection.scrollIntoView({
                     behavior: "smooth",
                     block: "start"
@@ -201,7 +200,7 @@
             });
         }
 
-        // Project Card Mouse Hover Events
+        // --- Task 3: Project Card Mouse Hover Events ---
         var card1 = document.getElementById("project1");
         var card2 = document.getElementById("project2");
 
@@ -209,13 +208,7 @@
         card1.addEventListener("mouseleave", function() { card1.style.borderColor = "#cccccc"; });
         card2.addEventListener("mouseover", function() { card2.style.borderColor = "#0066cc"; });
         card2.addEventListener("mouseleave", function() { card2.style.borderColor = "#cccccc"; });
-    <script>
-        // --- Task 5: Browser Console Test Message ---
-        console.log("Portfolio JavaScript loaded and running successfully!");
-
-        // --- Existing Task 3 & 4 Features ---
-        var alertButton = document.getElementById("contactBtn");
-        // ... (rest of your code stays exactly the same)
+    </script>
 
 </body>
 </html>
