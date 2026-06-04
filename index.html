@@ -3,34 +3,31 @@
 <head>
     <title>My Portfolio</title>
     <style>
-        /* Basic Page Setup */
         body {
-            background-color: #fafafa; /* plain light gray */
-            color: #333333; /* normal dark text */
+            background-color: #fafafa;
+            color: #333333;
             font-family: Arial, sans-serif;
             margin: 30px;
             padding: 0;
         }
 
-        /* Simple Navigation Layout */
         .nav-container {
             background-color: #ffffff;
             padding: 10px;
-            border: 1px solid #cccccc; /* plain basic border */
+            border: 1px solid #cccccc;
         }
 
         .nav-links {
-            list-style-type: none; /* removes bullets */
+            list-style-type: none;
             padding: 0;
             margin: 0;
         }
 
         .nav-links li {
-            display: inline; /* puts links in a basic row */
+            display: inline;
             margin-right: 15px;
         }
 
-        /* Basic Hero Section Block */
         .hero-section {
             background-color: #ffffff;
             padding: 20px;
@@ -44,9 +41,9 @@
             height: 130px;
         }
 
-        /* Plain Call to Action Button */
+        /* Added an ID here so JavaScript can easily select it */
         .cta-button {
-            background-color: #0066cc; /* standard link blue */
+            background-color: #0066cc;
             color: #ffffff;
             padding: 8px 16px;
             border: none;
@@ -54,22 +51,21 @@
         }
 
         .cta-button:hover {
-            background-color: #004499; /* simple hover color change */
+            background-color: #004499;
         }
 
-        /* Basic Projects Layout using inline-block */
         .projects-container {
             margin-top: 15px;
         }
 
+        /* Added an explicit class for our mouse event logic */
         .project-card {
             background-color: #ffffff;
             border: 1px solid #cccccc;
             padding: 15px;
-            margin-bottom: 15px; /* stacks them normally but cleanly */
+            margin-bottom: 15px;
         }
 
-        /* Simple link color */
         a {
             color: #0066cc;
             text-decoration: none;
@@ -97,7 +93,7 @@
         <img src="my-photo.png" alt="My Profile Picture">
         <h1>Sneh Bhatt</h1>
         <p>Welcome to my portfolio page. I am a 2nd year B.Tech CSE student learning coding, backend database integration, and modern web development.</p>
-        <button class="cta-button" onclick="location.href='#contact'">Contact Me</button>
+        <button class="cta-button" id="contactBtn">Contact Me</button>
     </div>
     
     <h2 id="about">About Me</h2>
@@ -113,12 +109,12 @@
 
     <h2 id="projects">Projects</h2>
     <div class="projects-container">
-        <div class="project-card">
+        <div class="project-card" id="project1">
             <h3>1. Student Management System</h3>
             <p>This is a Java project I made using Swing for the front end and JDBC to connect to a backend database.</p>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" id="project2">
             <h3>2. Networking Labs</h3>
             <p>I worked on setting up local networks, assigning IP configurations, and doing router simulations using Cisco Packet Tracer software.</p>
         </div>
@@ -132,6 +128,35 @@
     </ul>
 
     <p><em>Copyright 2026 - Sneh Bhatt Portfolio</em></p>
+
+    <script>
+        // 1. Click Event Logic
+        var button = document.getElementById("contactBtn");
+        
+        button.addEventListener("click", function() {
+            alert("Thank you for your interest! Please look at the contact information at the bottom of the page.");
+        });
+
+        // 2. Mouse Event Logic (Mouse Over & Mouse Leave)
+        var card1 = document.getElementById("project1");
+        var card2 = document.getElementById("project2");
+
+        // Card 1 Mouse Events
+        card1.addEventListener("mouseover", function() {
+            card1.style.backgroundColor = "#eef5fc"; // Light blue tint on mouse enter
+        });
+        card1.addEventListener("mouseleave", function() {
+            card1.style.backgroundColor = "#ffffff"; // Resets to original white on mouse leave
+        });
+
+        // Card 2 Mouse Events
+        card2.addEventListener("mouseover", function() {
+            card2.style.backgroundColor = "#eef5fc";
+        });
+        card2.addEventListener("mouseleave", function() {
+            card2.style.backgroundColor = "#ffffff";
+        });
+    </script>
 
 </body>
 </html>
