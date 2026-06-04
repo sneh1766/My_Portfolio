@@ -3,6 +3,7 @@
 <head>
     <title>My Portfolio</title>
     <style>
+        /* Base Light Theme Colors */
         body {
             background-color: #fafafa;
             color: #333333;
@@ -41,24 +42,31 @@
             height: 130px;
         }
 
-        /* Added an ID here so JavaScript can easily select it */
         .cta-button {
             background-color: #0066cc;
             color: #ffffff;
             padding: 8px 16px;
             border: none;
             cursor: pointer;
+            margin-right: 10px;
         }
 
         .cta-button:hover {
             background-color: #004499;
         }
 
-        .projects-container {
-            margin-top: 15px;
+        /* Plain Dark Theme Classes triggered by JavaScript */
+        .dark-body {
+            background-color: #222222 !important;
+            color: #ffffff !important;
         }
 
-        /* Added an explicit class for our mouse event logic */
+        .dark-card {
+            background-color: #333333 !important;
+            border-color: #555555 !important;
+            color: #ffffff !important;
+        }
+
         .project-card {
             background-color: #ffffff;
             border: 1px solid #cccccc;
@@ -78,7 +86,7 @@
 </head>
 <body>
 
-    <div class="nav-container">
+    <div class="nav-container" id="navBlock">
         <ul class="nav-links">
             <li><strong>SB Portfolio</strong></li>
             <li><a href="#hero">Home</a></li>
@@ -93,14 +101,17 @@
         <img src="my-photo.png" alt="My Profile Picture">
         <h1>Sneh Bhatt</h1>
         <p>Welcome to my portfolio page. I am a 2nd year B.Tech CSE student learning coding, backend database integration, and modern web development.</p>
+        
         <button class="cta-button" id="contactBtn">Contact Me</button>
+        
+        <button class="cta-button" id="themeBtn">Toggle Dark Theme</button>
     </div>
     
     <h2 id="about">About Me</h2>
     <p>I am currently studying Computer Science and Engineering in university. I like working on software logic, databases, and learning about technology. This is my first page layout for the internship assignment.</p>
 
     <h2 id="skills">Skills</h2>
-    <ul class="skills-list">
+    <ul>
         <li>Java programming</li>
         <li>SQL &amp; JDBC</li>
         <li>Basic Git</li>
@@ -130,31 +141,47 @@
     <p><em>Copyright 2026 - Sneh Bhatt Portfolio</em></p>
 
     <script>
-        // 1. Click Event Logic
-        var button = document.getElementById("contactBtn");
-        
-        button.addEventListener("click", function() {
-            alert("Thank you for your interest! Please look at the contact information at the bottom of the page.");
+        // --- 1. Example: Button click -> show alert ---
+        var alertButton = document.getElementById("contactBtn");
+        alertButton.addEventListener("click", function() {
+            alert("Please reach out via the email listed in the Contact section below!");
         });
 
-        // 2. Mouse Event Logic (Mouse Over & Mouse Leave)
+        // --- 2. Example: Toggle dark/light theme (basic) ---
+        var themeButton = document.getElementById("themeBtn");
+        
+        themeButton.addEventListener("click", function() {
+            // Select our target layout containers
+            var bodyElement = document.body;
+            var heroElement = document.getElementById("hero");
+            var navElement = document.getElementById("navBlock");
+            var card1 = document.getElementById("project1");
+            var card2 = document.getElementById("project2");
+
+            // Toggle classes on and off
+            bodyElement.classList.toggle("dark-body");
+            heroElement.classList.toggle("dark-card");
+            navElement.classList.toggle("dark-card");
+            card1.classList.toggle("dark-card");
+            card2.classList.toggle("dark-card");
+        });
+
+        // --- 3. Mouse Events (Hover tints for cards) ---
         var card1 = document.getElementById("project1");
         var card2 = document.getElementById("project2");
 
-        // Card 1 Mouse Events
         card1.addEventListener("mouseover", function() {
-            card1.style.backgroundColor = "#eef5fc"; // Light blue tint on mouse enter
+            card1.style.borderColor = "#0066cc";
         });
         card1.addEventListener("mouseleave", function() {
-            card1.style.backgroundColor = "#ffffff"; // Resets to original white on mouse leave
+            card1.style.borderColor = "#cccccc";
         });
 
-        // Card 2 Mouse Events
         card2.addEventListener("mouseover", function() {
-            card2.style.backgroundColor = "#eef5fc";
+            card2.style.borderColor = "#0066cc";
         });
         card2.addEventListener("mouseleave", function() {
-            card2.style.backgroundColor = "#ffffff";
+            card2.style.borderColor = "#cccccc";
         });
     </script>
 
