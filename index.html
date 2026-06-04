@@ -3,7 +3,6 @@
 <head>
     <title>My Portfolio</title>
     <style>
-        /* Base Light Theme Colors */
         body {
             background-color: #fafafa;
             color: #333333;
@@ -16,6 +15,11 @@
             background-color: #ffffff;
             padding: 10px;
             border: 1px solid #cccccc;
+            position: fixed; /* Keeps navbar at top while scrolling */
+            top: 10px;
+            left: 30px;
+            right: 30px;
+            z-index: 1000;
         }
 
         .nav-links {
@@ -27,6 +31,11 @@
         .nav-links li {
             display: inline;
             margin-right: 15px;
+        }
+
+        /* Added a buffer for content due to the fixed navbar */
+        .main-content {
+            margin-top: 70px;
         }
 
         .hero-section {
@@ -55,7 +64,14 @@
             background-color: #004499;
         }
 
-        /* Plain Dark Theme Classes triggered by JavaScript */
+        .project-card {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* Theme Toggle styles */
         .dark-body {
             background-color: #222222 !important;
             color: #ffffff !important;
@@ -67,11 +83,10 @@
             color: #ffffff !important;
         }
 
-        .project-card {
-            background-color: #ffffff;
-            border: 1px solid #cccccc;
-            padding: 15px;
-            margin-bottom: 15px;
+        /* Simple Navbar Link Interaction Highlight */
+        .active-link {
+            color: #ff6600 !important; /* turns orange when active */
+            font-weight: bold;
         }
 
         a {
@@ -89,100 +104,111 @@
     <div class="nav-container" id="navBlock">
         <ul class="nav-links">
             <li><strong>SB Portfolio</strong></li>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#hero" class="nav-item">Home</a></li>
+            <li><a href="#about" class="nav-item">About Me</a></li>
+            <li><a href="#skills" class="nav-item">Skills</a></li>
+            <li><a href="#projects" class="nav-item">Projects</a></li>
+            <li><a href="#contact" class="nav-item">Contact</a></li>
         </ul>
     </div>
 
-    <div class="hero-section" id="hero">
-        <img src="my-photo.png" alt="My Profile Picture">
-        <h1>Sneh Bhatt</h1>
-        <p>Welcome to my portfolio page. I am a 2nd year B.Tech CSE student learning coding, backend database integration, and modern web development.</p>
-        
-        <button class="cta-button" id="contactBtn">Contact Me</button>
-        
-        <button class="cta-button" id="themeBtn">Toggle Dark Theme</button>
-    </div>
-    
-    <h2 id="about">About Me</h2>
-    <p>I am currently studying Computer Science and Engineering in university. I like working on software logic, databases, and learning about technology. This is my first page layout for the internship assignment.</p>
+    <div class="main-content">
 
-    <h2 id="skills">Skills</h2>
-    <ul>
-        <li>Java programming</li>
-        <li>SQL &amp; JDBC</li>
-        <li>Basic Git</li>
-        <li>HTML5 &amp; CSS3</li>
-    </ul>
+        <div class="hero-section" id="hero">
+            <img src="my-photo.png" alt="My Profile Picture">
+            <h1>Sneh Bhatt</h1>
+            <p>Welcome to my portfolio page. I am a 2nd year B.Tech CSE student learning coding, backend database integration, and modern web development.</p>
+            <button class="cta-button" id="contactBtn">Contact Me</button>
+            <button class="cta-button" id="themeBtn">Toggle Dark Theme</button>
+        </div>
+        
+        <h2 id="about">About Me</h2>
+        <p>I am currently studying Computer Science and Engineering in university. I like working on software logic, databases, and learning about technology. This is my first page layout for the internship assignment.</p>
 
-    <h2 id="projects">Projects</h2>
-    <div class="projects-container">
-        <div class="project-card" id="project1">
-            <h3>1. Student Management System</h3>
-            <p>This is a Java project I made using Swing for the front end and JDBC to connect to a backend database.</p>
+        <h2 id="skills">Skills</h2>
+        <ul>
+            <li>Java programming</li>
+            <li>SQL &amp; JDBC</li>
+            <li>Basic Git</li>
+            <li>HTML5 &amp; CSS3</li>
+        </ul>
+
+        <h2 id="projects">Projects</h2>
+        <div class="projects-container">
+            <div class="project-card" id="project1">
+                <h3>1. Student Management System</h3>
+                <p>This is a Java project I made using Swing for the front end and JDBC to connect to a backend database.</p>
+            </div>
+
+            <div class="project-card" id="project2">
+                <h3>2. Networking Labs</h3>
+                <p>I worked on setting up local networks, assigning IP configurations, and doing router simulations using Cisco Packet Tracer software.</p>
+            </div>
         </div>
 
-        <div class="project-card" id="project2">
-            <h3>2. Networking Labs</h3>
-            <p>I worked on setting up local networks, assigning IP configurations, and doing router simulations using Cisco Packet Tracer software.</p>
-        </div>
-    </div>
+        <h2 id="contact">Contact Information</h2>
+        <p>You can contact me here:</p>
+        <ul>
+            <li>Email: kinjal.bhatt9519@gmail.com</li>
+            <li>GitHub profile: <a href="https://github.com/sneh1766" target="_blank">https://github.com/sneh1766</a></li>
+        </ul>
 
-    <h2 id="contact">Contact Information</h2>
-    <p>You can contact me here:</p>
-    <ul>
-        <li>Email: kinjal.bhatt9519@gmail.com</li>
-        <li>GitHub profile: <a href="https://github.com/sneh1766" target="_blank">https://github.com/sneh1766</a></li>
-    </ul>
+    </div>
 
     <p><em>Copyright 2026 - Sneh Bhatt Portfolio</em></p>
 
     <script>
-        // --- 1. Example: Button click -> show alert ---
+        // --- Existing Task 3 Features ---
         var alertButton = document.getElementById("contactBtn");
         alertButton.addEventListener("click", function() {
             alert("Please reach out via the email listed in the Contact section below!");
         });
 
-        // --- 2. Example: Toggle dark/light theme (basic) ---
         var themeButton = document.getElementById("themeBtn");
-        
         themeButton.addEventListener("click", function() {
-            // Select our target layout containers
-            var bodyElement = document.body;
-            var heroElement = document.getElementById("hero");
-            var navElement = document.getElementById("navBlock");
-            var card1 = document.getElementById("project1");
-            var card2 = document.getElementById("project2");
-
-            // Toggle classes on and off
-            bodyElement.classList.toggle("dark-body");
-            heroElement.classList.toggle("dark-card");
-            navElement.classList.toggle("dark-card");
-            card1.classList.toggle("dark-card");
-            card2.classList.toggle("dark-card");
+            document.body.classList.toggle("dark-body");
+            document.getElementById("hero").classList.toggle("dark-card");
+            document.getElementById("navBlock").classList.toggle("dark-card");
+            document.getElementById("project1").classList.toggle("dark-card");
+            document.getElementById("project2").classList.toggle("dark-card");
         });
 
-        // --- 3. Mouse Events (Hover tints for cards) ---
+        // --- New Task 4 Features: Smooth Scroll & Simple Link Interaction ---
+        var menuLinks = document.querySelectorAll(".nav-item");
+
+        for (var i = 0; i < menuLinks.length; i++) {
+            menuLinks[i].addEventListener("click", function(event) {
+                // Prevent normal instant jump behavior
+                event.preventDefault(); 
+                
+                // Remove active highlight from all links first
+                for (var j = 0; j < menuLinks.length; j++) {
+                    menuLinks[j].classList.remove("active-link");
+                }
+                
+                // Add active highlight to clicked link (Navbar Interaction)
+                this.classList.add("active-link");
+
+                // Get target ID from href attribute (e.g., "#about")
+                var targetId = this.getAttribute("href");
+                var targetSection = document.querySelector(targetId);
+                
+                // Execute Smooth Scroll natively
+                targetSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            });
+        }
+
+        // Project Card Mouse Hover Events
         var card1 = document.getElementById("project1");
         var card2 = document.getElementById("project2");
 
-        card1.addEventListener("mouseover", function() {
-            card1.style.borderColor = "#0066cc";
-        });
-        card1.addEventListener("mouseleave", function() {
-            card1.style.borderColor = "#cccccc";
-        });
-
-        card2.addEventListener("mouseover", function() {
-            card2.style.borderColor = "#0066cc";
-        });
-        card2.addEventListener("mouseleave", function() {
-            card2.style.borderColor = "#cccccc";
-        });
+        card1.addEventListener("mouseover", function() { card1.style.borderColor = "#0066cc"; });
+        card1.addEventListener("mouseleave", function() { card1.style.borderColor = "#cccccc"; });
+        card2.addEventListener("mouseover", function() { card2.style.borderColor = "#0066cc"; });
+        card2.addEventListener("mouseleave", function() { card2.style.borderColor = "#cccccc"; });
     </script>
 
 </body>
